@@ -153,7 +153,7 @@ public class VirtualGuestToJson implements Binder {
       Collections.sort(blockDevices, new BlockDevicesComparator());
       return ImmutableList.copyOf(blockDevices);
    }
-
+/*
    private Set<NetworkComponent> createNetworkComponents(VirtualGuest virtualGuest) {
       if (virtualGuest.getPrimaryNetworkComponent() == null && virtualGuest.getPrimaryBackendNetworkComponent() == null) {
          return null;
@@ -170,7 +170,15 @@ public class VirtualGuestToJson implements Binder {
       networkComponents.add(new NetworkComponent(maxSpeed));
       return networkComponents.build();
    }
+*/
 
+   private Set<NetworkComponent> createNetworkComponents(VirtualGuest virtualGuest) {
+
+        ImmutableSet.Builder networkComponents = ImmutableSet.builder();
+
+        networkComponents.add(new NetworkComponent(1000));
+        return networkComponents.build();
+    }
    public class BlockDevicesComparator implements Comparator<BlockDevice> {
 
       @Override
